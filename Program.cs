@@ -12,28 +12,26 @@
                 A[i] = true;
             }
 
-            for (int i = 2; i < Math.Sqrt(A.Length - 1); i++)
+            for (int i = 2; i <= Math.Sqrt(A.Length - 1); i++)
             {
                 if (A[i] == true)
                 {
-                    for (int j = 2; j < A.Length - 1; j++, j*=i)
+                    for (int j = 2; j*i <= A.Length - 1; j++)
                     {
-                        A[j] = false;
+                        A[j*i] = false;
                     }
                 }
             }
 
+            Console.WriteLine("Liczby pierwsze [2," + (A.Length - 1) + "]:");
             for (int i = 2; i < A.Length; i++)
             {
                 if (A[i] == true)
                 {
-                    Console.WriteLine(i + ": True");
-                }
-                else
-                {
-                    Console.WriteLine(i + ": False");
+                    Console.Write(i + ", ");
                 }
             }
+            Console.WriteLine("");
         }
     }
 }
